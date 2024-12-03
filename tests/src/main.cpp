@@ -2,8 +2,12 @@
 #include <iostream>
 #include <stdlib.h>
 #include <unistd.h>
+#include <atomic>
+#include <memory>
 #include <lo/lo.h>
 #include <lo/lo_cpp.h>
+
+
 
 int main()
 {
@@ -29,7 +33,7 @@ int main()
      * Counter for number of messages received -- we use an atomic
      * because it will be updated in a background thread.
      */
-    std::atomic<int> received(0);
+    std::atomic<int> received{0};
 
     /*
      * Add a method handler for "/example,i" using a C++11 lambda to

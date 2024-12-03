@@ -19,6 +19,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+#include <atomic>
+#include <memory>
 #include <stdio.h>
 #include <iostream>
 #include <stdlib.h>

@@ -1,1 +1,0 @@
-/usr/bin/clang++ -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -dynamiclib -Wl,-headerpad_max_install_names -o libHaptic_Gestures.dylib -install_name @rpath/libHaptic_Gestures.dylib CMakeFiles/Haptic_Gestures.dir/src/click.cpp.o CMakeFiles/Haptic_Gestures.dir/src/pid.cpp.o 

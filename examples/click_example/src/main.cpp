@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <atomic>
+#include <memory>
 #include <iostream>
 #include <stdlib.h>
 #include <unistd.h>
