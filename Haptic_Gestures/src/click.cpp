@@ -1,28 +1,31 @@
 #include "Haptic_Gestures.h"
 
-std_haptic_effect::std_haptic_effect() : initial_position{0} { }
-std_haptic_effect::std_haptic_effect(double init_pos) : initial_position{init_pos} { }
+std_haptic_effect::std_haptic_effect() : 
+                                    initial_position{0}, torque_Mode{false} { }
+std_haptic_effect::std_haptic_effect(double init_pos, bool t_m): 
+                                    initial_position{init_pos}, torque_Mode{t_m} { }
 
-Click::Click(double init_pos):
-          initial_position{init_pos},
-          latched_position{0}, 
-          max_dist{0.05}, 
-          m_out{0.0,0.0}, 
-          clicks{0}  
-          { }
+Click::Click(double init_pos, bool t_m): 
+            std_haptic_effect(init_pos, t_m),
+            latched_position{init_pos}, 
+            max_dist{0.05}, 
+            m_out{0.0,0.0}, 
+            clicks{0}  
+            { }
 
 void Click::set_initial_position(double pos){
   initial_position = pos;
   latched_position = pos;
 }
 double Click::get_relative_position(double absolute_position, double delta){
-  return (absolute_position-delta);
+  return absolute_position-delta;
 }
 moteus_commands Click::calculate(double pos, double torque, double velocity){
   relative_position = initial_position-pos;
 
   // Torque Calculation
-  command_torque = relative_position;
+  if(torque_Mode) command_torque = relative_position;
+  else command_torque = 0;
   m_out.out_torque = command_torque;
   
   // Position Calculation
@@ -36,3 +39,54 @@ moteus_commands Click::calculate(double pos, double torque, double velocity){
   }
   return m_out;
 }
+
+ClickV_2::ClickV_2(bool t_m):
+            latched_position{0.0}, 
+            dead_zone{0.0},
+            max_dist{0.05}, 
+            m_out{0.0,0.0}, 
+            clicks{0}  
+            {
+              midpoint = max_dist/2.0;
+              active_zone = midpoint - dead_zone;
+            }
+
+void ClickV_2::set_latched_position(double pos){
+  latched_position = pos;
+}
+double ClickV_2::get_relative_position(double absolute_position, double delta){
+  return absolute_position-delta;
+}
+
+std::tuple<double,double> ClickV_2::get_strength_coef() {return {m_kp, m_kd};}
+
+moteus_commands ClickV_2::calculate(double pos, double torque, double velocity){
+  
+  if (pos <= midpoint+active_zone && pos >= midpoint-active_zone) {
+    if(pos <= midpoint) latched_position = midpoint+active_zone;
+    if(pos >= midpoint) latched_position = midpoint-active_zone;
+    }
+  else latched_position = pos;
+
+  m_out.out_position = latched_position;
+
+  return m_out;
+  
+
+  // if (relative_position >= dead_zone && relative_position <= (dead_zone + active_zone)){
+
+  //   // Setting anchor points
+  //   if(relative_position <= midpoint)latched_position = dead_zone;
+  //   else latched_position = dead_zone + active_zone;
+
+  //   //Setting different haptic salience values.
+  //   if(relative_position <= midpoint+s2 && relative_position >= midpoint-s2) {m_kd = 1; m_kp = 1;}
+  //   else {m_kd = 0.5; m_kp = 0.5;}
+  // }else latched_position = relative_position;
+
+  // m_out.out_position = latched_position + initial_position;
+  // 
+  // return m_out;
+}
+
+

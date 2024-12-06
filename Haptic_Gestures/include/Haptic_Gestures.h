@@ -2,6 +2,7 @@
 #define HAPLIB_INCL
 
 #include <cmath>
+#include <tuple>
 
 struct moteus_commands{
       double out_position;
@@ -14,30 +15,63 @@ class std_haptic_effect {
       // (like walls and global variables that are being reused in other effects)
       
       public:
+      bool torque_Mode;
+      double command_torque;
+      double command_position;
+      double command_velocity;
       double initial_position;
+      double initial_velocity;
+      double initial_torque;
 
       std_haptic_effect();
-      std_haptic_effect(double init_pos);
+      std_haptic_effect(double init_pos, bool t_m);
       moteus_commands calculate(double pos, double torque, double velocity);
 };
 
 class Click : public std_haptic_effect{
+      
   public:
-      double initial_position;
       double max_dist;
       double latched_position;
-      double command_torque;
-      double command_position;
       double relative_latched_position;
       double relative_position;
       int clicks;
       
       moteus_commands m_out;
 
-      Click(double init_pos);
+      Click(double init_pos, bool t_m);
 
       void set_initial_position(double pos);
       double get_relative_position(double absolute_position, double delta);
       moteus_commands calculate(double pos, double torque, double velocity);
+};
+
+class ClickV_2{
+      private:
+      double m_kp;
+      double m_kd;
+      double s2;
+      double zero_point;
+      double dead_zone;
+      double active_zone;
+      double midpoint;
+      double click_slope;
+      double approach_slope;
+      double latched_position;
+  public:
+      double max_dist;
+      
+      double relative_latched_position;
+      double relative_position;
+      int clicks;
+      
+      moteus_commands m_out;
+
+      ClickV_2(bool t_m);
+
+      void set_latched_position(double pos);
+      double get_relative_position(double absolute_position, double delta);
+      moteus_commands calculate(double pos, double torque, double velocity);
+      std::tuple<double,double> get_strength_coef();
 };
 #endif

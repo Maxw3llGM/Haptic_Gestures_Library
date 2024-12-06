@@ -35,7 +35,7 @@
 
 static volatile int keepRunning = 1;
 moteus_commands m_command;
-Click click(0);
+Click click(0,true);
 void intHandler(int dummy){
     keepRunning = 0;
 }
