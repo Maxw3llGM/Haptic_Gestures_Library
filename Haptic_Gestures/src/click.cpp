@@ -31,7 +31,7 @@ moteus_commands Click::calculate(double pos, double torque, double velocity){
   // Position Calculation
   // This sets the current position to be the target position the motor is to be at, creating a click effect.
   relative_latched_position = get_relative_position(pos, latched_position);
-  if(abs(relative_latched_position) < max_dist) m_out.out_position = latched_position;
+  if(std::abs(relative_latched_position) < max_dist) m_out.out_position = latched_position;
   else {
     latched_position = pos;
     // TODO: Have the Click effect be a separate effect that is derived from the click effect???
@@ -54,6 +54,8 @@ ClickV_2::ClickV_2(bool t_m):
 void ClickV_2::set_latched_position(double pos){
   latched_position = pos;
 }
+void ClickV_2::set_max_distance(double m_d) {max_dist = m_d;}
+
 double ClickV_2::get_relative_position(double absolute_position, double delta){
   return absolute_position-delta;
 }
@@ -61,10 +63,12 @@ double ClickV_2::get_relative_position(double absolute_position, double delta){
 std::tuple<double,double> ClickV_2::get_strength_coef() {return {m_kp, m_kd};}
 
 moteus_commands ClickV_2::calculate(double pos, double torque, double velocity){
-  
+  // printf("pos %f, l_pos %f \r", pos, latched_position);
+  fflush(stdout);
   if (pos <= midpoint+active_zone && pos >= midpoint-active_zone) {
-    if(pos <= midpoint) latched_position = midpoint+active_zone;
-    if(pos >= midpoint) latched_position = midpoint-active_zone;
+    if(pos <= midpoint-0.01) latched_position = midpoint-active_zone;
+    if(pos >= midpoint+0.01) latched_position = midpoint+active_zone;
+
     }
   else latched_position = pos;
 

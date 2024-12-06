@@ -3,6 +3,7 @@
 
 #include <cmath>
 #include <tuple>
+#include <ostream>
 
 struct moteus_commands{
       double out_position;
@@ -68,7 +69,7 @@ class ClickV_2{
       moteus_commands m_out;
 
       ClickV_2(bool t_m);
-
+      void set_max_distance(double m_d);
       void set_latched_position(double pos);
       double get_relative_position(double absolute_position, double delta);
       moteus_commands calculate(double pos, double torque, double velocity);
