@@ -16,7 +16,7 @@ void intHandler(int dummy){
     keepRunning = 0;
 }
 Click click(0,true);
-    
+
 std::atomic<double> effect_data{0.0};
     
 void error(int num, const char *msg, const char *path)

@@ -10,6 +10,8 @@ include(FindPkgConfig)
 add_subdirectory(Haptic_Gestures)
 add_subdirectory(tests)
 add_subdirectory(examples/click_example)
+add_subdirectory(examples/clickV_2_example)
+
 add_subdirectory(examples/pid_example
 )
 

@@ -3,7 +3,9 @@
 
 #include <cmath>
 #include <tuple>
-#include <ostream>
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
 
 struct moteus_commands{
       double out_position;
@@ -71,6 +73,8 @@ class ClickV_2{
       ClickV_2(bool t_m);
       void set_max_distance(double m_d);
       void set_latched_position(double pos);
+      int set_active_zone(double a_z);
+      void print_consts();
       double get_relative_position(double absolute_position, double delta);
       moteus_commands calculate(double pos, double torque, double velocity);
       std::tuple<double,double> get_strength_coef();
