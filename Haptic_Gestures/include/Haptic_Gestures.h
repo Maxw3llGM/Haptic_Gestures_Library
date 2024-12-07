@@ -61,8 +61,9 @@ class ClickV_2{
       double click_slope;
       double approach_slope;
       double latched_position;
-  public:
       double max_dist;
+  public:
+      
       
       double relative_latched_position;
       double relative_position;
@@ -72,6 +73,10 @@ class ClickV_2{
 
       ClickV_2(bool t_m);
       void set_max_distance(double m_d);
+      double get_active_zone() {return active_zone;};
+      double get_midpoint() {return midpoint;};
+      double get_dead_zone() {return dead_zone;};
+      double get_max_dist() {return max_dist;};
       void set_latched_position(double pos);
       int set_active_zone(double a_z);
       void print_consts();

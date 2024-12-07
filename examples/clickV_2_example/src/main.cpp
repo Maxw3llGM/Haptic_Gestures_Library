@@ -57,7 +57,7 @@ int main()
     click.set_max_distance(0.1);
     click.set_active_zone(0.01);
     click.print_consts();
-    std::cout << click.max_dist << std::endl;
+    std::cout << click.get_max_dist() << std::endl;
     for(int i = 0; i < 200; i++){
         const double wrapped_in_pos = std::fmod(in_pos,0.1);
 
