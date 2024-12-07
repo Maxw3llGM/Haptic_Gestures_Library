@@ -83,7 +83,7 @@ moteus_commands ClickV_2::calculate(double pos, double torque, double velocity){
   if (pos <= midpoint+active_zone && pos >= midpoint-active_zone) {
 
     if(pos <= midpoint) latched_position = midpoint-active_zone;
-    if(pos > midpoint) latched_position = midpoint+active_zone;
+    else latched_position = midpoint+active_zone;
 
     }
   else latched_position = pos;
