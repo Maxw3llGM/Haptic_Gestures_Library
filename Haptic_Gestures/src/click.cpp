@@ -92,21 +92,6 @@ moteus_commands ClickV_2::calculate(double pos, double torque, double velocity){
 
   return m_out;
 
-
-  // if (relative_position >= dead_zone && relative_position <= (dead_zone + active_zone)){
-
-  //   // Setting anchor points
-  //   if(relative_position <= midpoint)latched_position = dead_zone;
-  //   else latched_position = dead_zone + active_zone;
-
-  //   //Setting different haptic salience values.
-  //   if(relative_position <= midpoint+s2 && relative_position >= midpoint-s2) {m_kd = 1; m_kp = 1;}
-  //   else {m_kd = 0.5; m_kp = 0.5;}
-  // }else latched_position = relative_position;
-
-  // m_out.out_position = latched_position + initial_position;
-  // 
-  // return m_out;
 }
 
 
