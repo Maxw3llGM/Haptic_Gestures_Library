@@ -25,12 +25,12 @@
 #include <iostream>
 #include <stdlib.h>
 #include <unistd.h>
-#include "pid.h"
+#include "pid.hpp"
 #include <lo/lo.h>
 #include <lo/lo_cpp.h>
 #include <stdio.h>
 #include <signal.h>
-#include <Haptic_Gestures.h>
+#include <click.hpp>
 
 
 static volatile int keepRunning = 1;

@@ -7,7 +7,7 @@
 #include <lo/lo.h>
 #include <lo/lo_cpp.h>
 #include <signal.h>
-#include <Haptic_Gestures.h>
+#include <click.hpp>
 
 static volatile int keepRunning = 1;
 
