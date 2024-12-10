@@ -31,11 +31,15 @@
 #include <stdio.h>
 #include <signal.h>
 #include <click.hpp>
+#include <Haptic_Gestures.hpp>
 
 
 static volatile int keepRunning = 1;
 moteus_commands m_command;
-Click click(0,true);
+config_struct config_file;
+
+Click click(config_file, true);
+
 void intHandler(int dummy){
     keepRunning = 0;
 }

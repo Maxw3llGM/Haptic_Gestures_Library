@@ -15,7 +15,8 @@ moteus_commands m_command;
 void intHandler(int dummy){
     keepRunning = 0;
 }
-Click click(0,true);
+config_struct config_file;
+Click click(config_file, true);
 
 std::atomic<double> effect_data{0.0};
     
