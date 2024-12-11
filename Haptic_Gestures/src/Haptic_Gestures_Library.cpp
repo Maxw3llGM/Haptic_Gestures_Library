@@ -1,13 +1,12 @@
 #include "Haptic_Gestures_Library.hpp"
+#include "Haptic_Gestures.hpp"
 
-
-
-Haptic_Gestures_Library::Haptic_Gestures_Library(int initial_active_effect, bool initial_pressure_control){
-    click = new Click(config_file_1,initial_pressure_control);
-    clickv_2 = new ClickV_2(initial_pressure_control);
-
-    effect_list.push_back(click);
-    effect_list.push_back(clickv_2);
+Haptic_Gestures_Library::Haptic_Gestures_Library(config_struct conf, int initial_active_effect, bool initial_pressure_control): 
+click(conf, 0), clickv_2(conf, 0){
+    cf = conf;
+    effect_list.push_back(&click);
+    effect_list.push_back(&clickv_2);
+    active_effect_index = initial_active_effect;
     try{
         if(initial_active_effect < 0 || initial_active_effect > effect_list.size()) throw 666;
 
@@ -30,6 +29,19 @@ void Haptic_Gestures_Library::change_effect(int active_effect_index){
         std::cout << "The index must be within the max size of the effect list 2" << std::endl;
     }
 }
+
+void Haptic_Gestures_Library::set_active_effect(int step){
+    active_effect_index += step;
+    if (active_effect_index >= effect_list.size()){
+        active_effect_index = 0;
+    };
+    if (active_effect_index < 0){
+        active_effect_index = effect_list.size()-1;
+    }
+
+    active_effects = effect_list[active_effect_index];
+}
+
 moteus_commands Haptic_Gestures_Library::effect_calculation(double pos, double vel, double tor){
     return active_effects->calculate(pos,vel,tor);
 }
@@ -47,6 +59,5 @@ void Haptic_Gestures_Library::print_effect_values(){
 }
 
 Haptic_Gestures_Library::~Haptic_Gestures_Library(){
-    delete click;
-    delete clickv_2;
+
 }

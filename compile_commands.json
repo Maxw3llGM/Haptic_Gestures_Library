@@ -1,32 +1,62 @@
 [
 {
-  "directory": "/Users/miu/git_location/Haptic_Gestures_Library/Haptic_Gestures",
-  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DHaptic_Gestures_EXPORTS -I/Users/miu/git_location/Haptic_Gestures_Library/Haptic_Gestures/include -std=gnu++14 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -fPIC -o CMakeFiles/Haptic_Gestures.dir/src/click.cpp.o -c /Users/miu/git_location/Haptic_Gestures_Library/Haptic_Gestures/src/click.cpp",
-  "file": "/Users/miu/git_location/Haptic_Gestures_Library/Haptic_Gestures/src/click.cpp",
+  "directory": "/home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/Haptic_Gestures",
+  "command": "/usr/bin/c++ -DHaptic_Gestures_EXPORTS -I/home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/Haptic_Gestures/include -fPIC -o CMakeFiles/Haptic_Gestures.dir/src/Haptic_Gestures.cpp.o -c /home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/Haptic_Gestures/src/Haptic_Gestures.cpp",
+  "file": "/home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/Haptic_Gestures/src/Haptic_Gestures.cpp",
+  "output": "Haptic_Gestures/CMakeFiles/Haptic_Gestures.dir/src/Haptic_Gestures.cpp.o"
+},
+{
+  "directory": "/home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/Haptic_Gestures",
+  "command": "/usr/bin/c++ -DHaptic_Gestures_EXPORTS -I/home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/Haptic_Gestures/include -fPIC -o CMakeFiles/Haptic_Gestures.dir/src/Haptic_Gestures_Library.cpp.o -c /home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/Haptic_Gestures/src/Haptic_Gestures_Library.cpp",
+  "file": "/home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/Haptic_Gestures/src/Haptic_Gestures_Library.cpp",
+  "output": "Haptic_Gestures/CMakeFiles/Haptic_Gestures.dir/src/Haptic_Gestures_Library.cpp.o"
+},
+{
+  "directory": "/home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/Haptic_Gestures",
+  "command": "/usr/bin/c++ -DHaptic_Gestures_EXPORTS -I/home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/Haptic_Gestures/include -fPIC -o CMakeFiles/Haptic_Gestures.dir/src/click.cpp.o -c /home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/Haptic_Gestures/src/click.cpp",
+  "file": "/home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/Haptic_Gestures/src/click.cpp",
   "output": "Haptic_Gestures/CMakeFiles/Haptic_Gestures.dir/src/click.cpp.o"
 },
 {
-  "directory": "/Users/miu/git_location/Haptic_Gestures_Library/Haptic_Gestures",
-  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DHaptic_Gestures_EXPORTS -I/Users/miu/git_location/Haptic_Gestures_Library/Haptic_Gestures/include -std=gnu++14 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -fPIC -o CMakeFiles/Haptic_Gestures.dir/src/pid.cpp.o -c /Users/miu/git_location/Haptic_Gestures_Library/Haptic_Gestures/src/pid.cpp",
-  "file": "/Users/miu/git_location/Haptic_Gestures_Library/Haptic_Gestures/src/pid.cpp",
+  "directory": "/home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/Haptic_Gestures",
+  "command": "/usr/bin/c++ -DHaptic_Gestures_EXPORTS -I/home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/Haptic_Gestures/include -fPIC -o CMakeFiles/Haptic_Gestures.dir/src/clickv_2.cpp.o -c /home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/Haptic_Gestures/src/clickv_2.cpp",
+  "file": "/home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/Haptic_Gestures/src/clickv_2.cpp",
+  "output": "Haptic_Gestures/CMakeFiles/Haptic_Gestures.dir/src/clickv_2.cpp.o"
+},
+{
+  "directory": "/home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/Haptic_Gestures",
+  "command": "/usr/bin/c++ -DHaptic_Gestures_EXPORTS -I/home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/Haptic_Gestures/include -fPIC -o CMakeFiles/Haptic_Gestures.dir/src/pid.cpp.o -c /home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/Haptic_Gestures/src/pid.cpp",
+  "file": "/home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/Haptic_Gestures/src/pid.cpp",
   "output": "Haptic_Gestures/CMakeFiles/Haptic_Gestures.dir/src/pid.cpp.o"
 },
 {
-  "directory": "/Users/miu/git_location/Haptic_Gestures_Library/tests",
-  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/opt/homebrew/Cellar/liblo/0.32/include -I/Users/miu/git_location/Haptic_Gestures_Library/Haptic_Gestures/include -std=gnu++14 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -o CMakeFiles/tests.dir/src/main.cpp.o -c /Users/miu/git_location/Haptic_Gestures_Library/tests/src/main.cpp",
-  "file": "/Users/miu/git_location/Haptic_Gestures_Library/tests/src/main.cpp",
+  "directory": "/home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/tests",
+  "command": "/usr/bin/c++  -I/home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/Haptic_Gestures/include  -o CMakeFiles/tests.dir/src/main.cpp.o -c /home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/tests/src/main.cpp",
+  "file": "/home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/tests/src/main.cpp",
   "output": "tests/CMakeFiles/tests.dir/src/main.cpp.o"
 },
 {
-  "directory": "/Users/miu/git_location/Haptic_Gestures_Library/examples/click_example",
-  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/opt/homebrew/Cellar/liblo/0.32/include -I/Users/miu/git_location/Haptic_Gestures_Library/Haptic_Gestures/include -std=gnu++14 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -o CMakeFiles/example_OSC.dir/src/main.cpp.o -c /Users/miu/git_location/Haptic_Gestures_Library/examples/click_example/src/main.cpp",
-  "file": "/Users/miu/git_location/Haptic_Gestures_Library/examples/click_example/src/main.cpp",
+  "directory": "/home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/examples/click_example",
+  "command": "/usr/bin/c++  -I/home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/Haptic_Gestures/include  -o CMakeFiles/example_OSC.dir/src/main.cpp.o -c /home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/examples/click_example/src/main.cpp",
+  "file": "/home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/examples/click_example/src/main.cpp",
   "output": "examples/click_example/CMakeFiles/example_OSC.dir/src/main.cpp.o"
 },
 {
-  "directory": "/Users/miu/git_location/Haptic_Gestures_Library/examples/pid_example",
-  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/opt/homebrew/Cellar/liblo/0.32/include -I/Users/miu/git_location/Haptic_Gestures_Library/Haptic_Gestures/include -std=gnu++14 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -o CMakeFiles/example_PID.dir/src/pid_example.cpp.o -c /Users/miu/git_location/Haptic_Gestures_Library/examples/pid_example/src/pid_example.cpp",
-  "file": "/Users/miu/git_location/Haptic_Gestures_Library/examples/pid_example/src/pid_example.cpp",
+  "directory": "/home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/examples/clickV_2_example",
+  "command": "/usr/bin/c++  -I/home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/Haptic_Gestures/include  -o CMakeFiles/example_click2.dir/src/main.cpp.o -c /home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/examples/clickV_2_example/src/main.cpp",
+  "file": "/home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/examples/clickV_2_example/src/main.cpp",
+  "output": "examples/clickV_2_example/CMakeFiles/example_click2.dir/src/main.cpp.o"
+},
+{
+  "directory": "/home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/examples/pid_example",
+  "command": "/usr/bin/c++  -I/home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/Haptic_Gestures/include  -o CMakeFiles/example_PID.dir/src/pid_example.cpp.o -c /home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/examples/pid_example/src/pid_example.cpp",
+  "file": "/home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/examples/pid_example/src/pid_example.cpp",
   "output": "examples/pid_example/CMakeFiles/example_PID.dir/src/pid_example.cpp.o"
+},
+{
+  "directory": "/home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/examples/Haptic_Library_example",
+  "command": "/usr/bin/c++  -I/home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/Haptic_Gestures/include  -o CMakeFiles/example_haptic_lib.dir/src/main.cpp.o -c /home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/examples/Haptic_Library_example/src/main.cpp",
+  "file": "/home/idmil/TorqueTuner/pressure_flow/lib/Haptic_Gestures_Library/examples/Haptic_Library_example/src/main.cpp",
+  "output": "examples/Haptic_Library_example/CMakeFiles/example_haptic_lib.dir/src/main.cpp.o"
 }
 ]
