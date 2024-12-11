@@ -2,18 +2,18 @@
 #include "click.hpp"
 #include "clickv_2.hpp"
 #include <vector>
-#include <variant>
 
 class Haptic_Gestures_Library{
     private:
-        config_struct config_file_1;
-        config_struct config_file_2;
-        Click *click;
-        ClickV_2 *clickv_2;
+        Click click;
+        ClickV_2 clickv_2;
         std::vector< std_haptic_effect * > effect_list;
         std_haptic_effect * active_effects;
+        int list_size;
+        int active_effect_index;
+        config_struct cf;
     public:
-        Haptic_Gestures_Library(int initial_active_effect, bool initial_pressure_control);
+        Haptic_Gestures_Library(config_struct conf, int initial_active_effect, bool initial_pressure_control);
         ~Haptic_Gestures_Library();
 
         void change_effect(int active_effect_index);
@@ -26,5 +26,7 @@ class Haptic_Gestures_Library{
         double get_effects_relative_position(){
             return active_effects->relative_position;
         }
+        void set_active_effect(int index);
+
     
 };

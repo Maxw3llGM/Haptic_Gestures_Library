@@ -1,6 +1,7 @@
 #include "click.hpp"
 
 
+
 Click::Click(config_struct cf, bool t_m): 
             std_haptic_effect(cf, t_m),
             clicks{0}  

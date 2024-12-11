@@ -1,3 +1,4 @@
+#include "Haptic_Gestures.hpp"
 #include <stdio.h>
 #include <atomic>
 #include <memory>
@@ -16,9 +17,10 @@ moteus_commands m_command;
 void intHandler(int dummy){
     keepRunning = 0;
 }
-config_struct config_file;
+config_struct * cf = new config_struct(0.1,0.05,1.0,1.0);
 
-Haptic_Gestures_Library effect_lib(1, 0);
+
+Haptic_Gestures_Library effect_lib(*cf, 1, 0);
 
 std::atomic<double> effect_data{0.0};
     
@@ -56,12 +58,9 @@ void print_data(double in_position, double out_position){
 }
 int main()
 {      
-    config_struct cf;
-    cf.m_d = 0.1;
-    cf.a_z = 0.01;
+    
     double in_pos = 0;
     double step = 0.001;
-    effect_lib.set_effect_configuration(cf);
 
     effect_lib.print_effect_values();
     std::cout << "Max Distance: " << effect_lib.get_effect_configuration() << std::endl;
@@ -75,5 +74,6 @@ int main()
         
         in_pos -= step;
     }
+    delete cf;
     return 0;
 }

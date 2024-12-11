@@ -2,9 +2,7 @@
 #define HAPLIB_INCL
 
 #include <cmath>
-#include <tuple>
 #include <iostream>
-#include <stdio.h>
 #include <stdlib.h>
 
 struct moteus_commands{
