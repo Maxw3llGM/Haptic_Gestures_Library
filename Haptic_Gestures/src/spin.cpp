@@ -23,6 +23,8 @@ moteus_commands Spin::calculate(double pos, double torque, double velocity){
     m_out.out_velocity = effect_velocity;
     m_out.out_position = pos;
     m_out.out_torque = 0;
+    
+    return m_out;
 }
 
 //TODO: Fixed the moteus_commands struct 
