@@ -1,12 +1,14 @@
 #include "Haptic_Gestures.hpp"
 #include "click.hpp"
 #include "clickv_2.hpp"
+#include "spin.hpp"
 #include <vector>
 
 class Haptic_Gestures_Library{
     private:
         Click click;
         ClickV_2 clickv_2;
+        Spin spin;
         std::vector< std_haptic_effect * > effect_list;
         std_haptic_effect * active_effects;
         int list_size;
