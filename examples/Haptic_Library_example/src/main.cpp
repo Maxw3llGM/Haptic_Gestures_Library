@@ -17,7 +17,7 @@ moteus_commands m_command;
 void intHandler(int dummy){
     keepRunning = 0;
 }
-config_struct * cf = new config_struct(0.1,0.05,1.0,1.0);
+config_struct * cf = new config_struct(0.5,0.1,0.05,1.0,1.0);
 
 
 Haptic_Gestures_Library effect_lib(*cf, 1, 0);
