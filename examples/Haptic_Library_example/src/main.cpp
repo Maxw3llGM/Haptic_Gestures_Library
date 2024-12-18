@@ -11,6 +11,7 @@
 #include <cmath>
 #include <Haptic_Gestures_Library.hpp>
 
+
 static volatile int keepRunning = 1;
 
 moteus_commands m_command;
@@ -19,8 +20,9 @@ void intHandler(int dummy){
 }
 config_struct * cf = new config_struct(0.5,0.1,0.05,1.0,1.0);
 
+Spin spin(*cf);
 
-Haptic_Gestures_Library effect_lib(*cf, 1, 0);
+Haptic_Gestures_Library effect_lib(*cf, 3, 0);
 
 std::atomic<double> effect_data{0.0};
     
@@ -57,14 +59,13 @@ void print_data(double in_position, double out_position){
     printf("In: %f | Out: %f\n", in_position, out_position);
 }
 int main()
-{      
-    
-    double in_pos = 0;
-    double step = 0.001;
+{       
+    double in_pos = 0.1;
+    double step = 0.01;
 
     effect_lib.print_effect_values();
     std::cout << "Max Distance: " << effect_lib.get_effect_configuration() << std::endl;
-    for(int i = 0; i < 200; i++){
+    for(int i = 0; i < 21; i++){
         const double wrapped_in_pos = std::fmod(in_pos,0.1);
 
         const moteus_commands result = effect_lib.effect_calculation(in_pos, 0, 0);

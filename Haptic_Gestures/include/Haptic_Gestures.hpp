@@ -64,8 +64,8 @@ class std_haptic_effect {
       std_haptic_effect(config_struct cf, bool t_m);
       virtual moteus_commands calculate(double pos, double torque, double velocity) = 0;
 
-      virtual config_struct get_config();
-      virtual void set_config(config_struct cf);
+      config_struct get_config();
+      void set_config(config_struct cf);
 
       virtual void print_consts();
 };

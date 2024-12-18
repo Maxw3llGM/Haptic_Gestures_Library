@@ -2,6 +2,7 @@
 #include "click.hpp"
 #include "clickv_2.hpp"
 #include "spin.hpp"
+#include "spring.hpp"
 #include <vector>
 
 class Haptic_Gestures_Library{
@@ -9,6 +10,7 @@ class Haptic_Gestures_Library{
         Click click;
         ClickV_2 clickv_2;
         Spin spin;
+        Spring spring;
         std::vector< std_haptic_effect * > effect_list;
         std_haptic_effect * active_effects;
         int list_size;

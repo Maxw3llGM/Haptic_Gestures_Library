@@ -24,7 +24,7 @@ config_struct std_haptic_effect::get_config(){
     return config_file;
 }
 void std_haptic_effect::set_config(config_struct cf){
-    
+    config_file = cf;
 }
 void std_haptic_effect::print_consts(){
     std::cout << config_file;

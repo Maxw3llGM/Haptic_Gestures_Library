@@ -7,9 +7,6 @@ class Spin: public std_haptic_effect{
     public:
     Spin(config_struct cf);
 
-    config_struct get_config();
-    void set_config(config_struct cf);
-
     void set_velocity(double vel);
     double get_velocity();
     

@@ -1,12 +1,12 @@
 #include "Haptic_Gestures_Library.hpp"
-#include "Haptic_Gestures.hpp"
 
 Haptic_Gestures_Library::Haptic_Gestures_Library(config_struct conf, int initial_active_effect, bool initial_pressure_control): 
-click(conf, 0), clickv_2(conf, 0), spin(conf){
+click(conf, 0), clickv_2(conf, 0), spin(conf), spring(conf){
     cf = conf;
     effect_list.push_back(&click);
     effect_list.push_back(&clickv_2);
     effect_list.push_back(&spin);
+    effect_list.push_back(&spring);
     active_effect_index = initial_active_effect;
     try{
         if(initial_active_effect < 0 || initial_active_effect > effect_list.size()) throw 666;
