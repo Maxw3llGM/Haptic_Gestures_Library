@@ -21,7 +21,7 @@ double Click::get_relative_position(double absolute_position, double delta){
 moteus_commands Click::calculate(double pos, double torque, double velocity){
 
   // Torque Calculation
-  if(1) command_torque = clip<double>(pos, -1.0, 1.0);
+  if(1) command_torque = clip<double>(pos, -.1, .1);
   else command_torque = 0;
   m_out.out_torque = command_torque;
   
