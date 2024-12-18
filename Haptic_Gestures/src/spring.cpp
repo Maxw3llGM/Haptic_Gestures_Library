@@ -12,7 +12,7 @@ double Spring::normalized_position(double position, double st_pos){
 
 moteus_commands Spring::calculate(double pos, double torque, double velocity){
     ratio = normalized_position(pos,stop_position);
-    m_out.out_position = pos-(max_position*ratio);
+    m_out.out_position = pos-(max_position*(1-ratio));
 
     return m_out;
 }
