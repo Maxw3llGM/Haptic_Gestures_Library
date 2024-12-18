@@ -7,7 +7,7 @@ std_haptic_effect{cf}, ratio{0.0} {
 }
 
 double Spring::normalized_position(double position, double st_pos){
-    return std::clamp(position, -st_pos, st_pos)/st_pos;
+    return clip(position, -st_pos, st_pos)/st_pos;
 }
 
 moteus_commands Spring::calculate(double pos, double torque, double velocity){
