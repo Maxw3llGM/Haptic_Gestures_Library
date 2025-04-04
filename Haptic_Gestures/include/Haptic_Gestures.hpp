@@ -4,6 +4,7 @@
 #include <cmath>
 #include <iostream>
 #include <stdlib.h>
+#include <tuple>
 
 struct moteus_commands{
       double out_position;
@@ -55,6 +56,8 @@ class std_haptic_effect {
       double relative_position;
       double latched_position;
       double max_distance;
+      double dt;
+      double init_pos;
       config_struct config_file;
       moteus_commands m_out;
 
@@ -63,7 +66,7 @@ class std_haptic_effect {
       std_haptic_effect(config_struct cf);
       std_haptic_effect(config_struct cf, bool t_m);
       virtual moteus_commands calculate(double pos, double torque, double velocity) = 0;
-
+      void set_initial_position(int init_pos);
       config_struct get_config();
       void set_config(config_struct cf);
 
