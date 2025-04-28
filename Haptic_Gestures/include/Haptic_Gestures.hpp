@@ -5,6 +5,8 @@
 #include <iostream>
 #include <stdlib.h>
 #include <tuple>
+#include <clip.hpp>
+#include <function_generator.hpp>
 
 struct moteus_commands{
       double out_position;
@@ -12,17 +14,13 @@ struct moteus_commands{
       double out_torque;
 };
 
-template<typename T> T clip(const T& n, const T& lower, const T& upper){
-      return std::max(lower, std::min(n,upper));
-}
-
 struct config_struct{
       public:
-      double m_d;
-      double a_z;
-      double m_kp;
-      double m_kd;
-      double vel;
+      double m_d; //max distance
+      double a_z; //active zone
+      double m_kp; //postitional constant
+      double m_kd; //differential constant
+      double vel; //velocity
 
       config_struct(){
             m_d = 1.0;
@@ -31,7 +29,7 @@ struct config_struct{
             m_kd = 1.0;
             vel = 0;
       }
-      config_struct(double velocity ,double max_dist, double active_zone, double position_coefficient, double velocity_coefficient){
+      config_struct(double max_dist, double active_zone, double position_coefficient, double velocity_coefficient, double velocity){
             m_d = max_dist;
             a_z = active_zone;
             m_kp = position_coefficient;
@@ -58,9 +56,10 @@ class std_haptic_effect {
       double max_distance;
       double dt;
       double init_pos;
+      double max_torque;
       config_struct config_file;
       moteus_commands m_out;
-
+      Function_Generator fg;
       std_haptic_effect();
       std_haptic_effect(bool t_m);
       std_haptic_effect(config_struct cf);
@@ -69,6 +68,8 @@ class std_haptic_effect {
       void set_initial_position(int init_pos);
       config_struct get_config();
       void set_config(config_struct cf);
+      double torque_Rendering(double position, double functions_output);
+      void set_Max_Torque(double new_value);
 
       virtual void print_consts();
 };

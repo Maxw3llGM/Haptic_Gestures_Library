@@ -4,9 +4,9 @@ Haptic_Gestures_Library::Haptic_Gestures_Library(config_struct conf, int initial
 click(conf, 0), clickv_2(conf, 0), spin(conf), spring(conf), inertia{conf}{
     cf = conf;
     effect_list.push_back(&click);
-    effect_list.push_back(&inertia);
-    effect_list.push_back(&clickv_2);
-    effect_list.push_back(&spin);
+    // effect_list.push_back(&inertia);
+    // effect_list.push_back(&clickv_2);
+    // effect_list.push_back(&spin);
     effect_list.push_back(&spring);
     active_effect_index = initial_active_effect;
     try{
@@ -48,7 +48,7 @@ moteus_commands Haptic_Gestures_Library::effect_calculation(double pos, double v
     return active_effects->calculate(pos,vel,tor);
 }
 void Haptic_Gestures_Library::set_initial_position(double init_position){
-    for (int i = 0 ; i < 4; i++){
+    for (int i = 0 ; i < effect_list.size(); i++){
         effect_list[i]->set_initial_position(init_position);
     }
 

@@ -32,6 +32,9 @@ class Haptic_Gestures_Library{
         double get_effects_relative_position(){
             return active_effects->relative_position;
         }
+        int get_effect_list_size(){
+            return effect_list.size();
+        }
         void set_active_effect(int index);
 
     
