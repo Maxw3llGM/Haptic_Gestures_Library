@@ -4,7 +4,8 @@ std_haptic_effect::std_haptic_effect()
 : m_kp{1.0}, m_kd{1.0}, torque_Mode{false},m_out{0.0,0.0}, max_distance{1.0}, latched_position{0.0}, relative_position{0.0},dt{0.1},max_torque{0.5} {
 }
 std_haptic_effect::std_haptic_effect(config_struct cf): 
-config_file{cf}, torque_Mode{0}, m_out{0.0,0.0}, max_distance{1.0}, latched_position{0.0}, relative_position{0.0}, dt{0.1}, max_torque{0.5}, fg{1.1,1.0,cf.m_d,.075} {}
+config_file{cf}, torque_Mode{0}, m_out{0.0,0.0}, max_distance{0.1}, latched_position{0.0}, relative_position{0.0}, dt{0.1}, max_torque{0.5}, fg{1.1,1.0,cf.m_d,.075} {}
+
 std_haptic_effect::std_haptic_effect(bool t_m)
 : torque_Mode{t_m}, m_out{0.0,0.0}, max_distance{1.0}, latched_position{0.0}, relative_position{0.0},dt{0.1},max_torque{0.5} {
 

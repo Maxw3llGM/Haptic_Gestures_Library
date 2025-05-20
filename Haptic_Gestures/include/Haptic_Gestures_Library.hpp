@@ -4,6 +4,7 @@
 #include "spin.hpp"
 #include "spring.hpp"
 #include "inertia.hpp"
+#include "reed_pressure.hpp"
 #include <vector>
 
 class Haptic_Gestures_Library{
@@ -13,6 +14,7 @@ class Haptic_Gestures_Library{
         Spin spin;
         Spring spring;
         Inertia inertia;
+        Reed_pressure reed_pressure;
         std::vector< std_haptic_effect * > effect_list;
         std_haptic_effect * active_effects;
         int list_size;
