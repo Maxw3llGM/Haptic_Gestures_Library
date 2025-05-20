@@ -62,7 +62,7 @@ int main()
     /*
      * Send some messages to the server we just created on localhost.
      */
-    lo::Address a("localhost", "9000");
+    lo::Address a("192.168.1.2", "9000");
 
     /*
      * An individual message
