@@ -1,17 +1,19 @@
 #include "Haptic_Gestures.hpp"
 
+
 class ClickV_2 : public std_haptic_effect {
       private:
       double active_zone;
       double zero_point;
       double dead_zone;
       double midpoint;
+      
   public:
       double relative_latched_position;
       int clicks;
 
-      ClickV_2(bool t_m);
-      ClickV_2(config_struct cf, bool t_m);
+      ClickV_2();
+      ClickV_2(config_struct cf);
 
       config_struct get_config();
       void set_config(config_struct config_file);

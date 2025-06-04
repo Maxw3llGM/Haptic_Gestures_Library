@@ -2,8 +2,8 @@
 
 
 
-Click::Click(config_struct cf, bool t_m): 
-            std_haptic_effect(cf, t_m),
+Click::Click(config_struct cf): 
+            std_haptic_effect(cf),
             clicks{0}  
             {
               set_config(cf);

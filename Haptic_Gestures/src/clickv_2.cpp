@@ -1,6 +1,6 @@
 #include "clickv_2.hpp"
 
-ClickV_2::ClickV_2(bool t_m):
+ClickV_2::ClickV_2():
             std_haptic_effect{},
             dead_zone{0.0},
             clicks{0}  
@@ -10,7 +10,7 @@ ClickV_2::ClickV_2(bool t_m):
               active_zone = midpoint - dead_zone;
               relative_position = -midpoint;
             }
-ClickV_2::ClickV_2(config_struct cf, bool t_m):
+ClickV_2::ClickV_2(config_struct cf):
             std_haptic_effect{cf},
             active_zone{0.025},
             clicks{0}  

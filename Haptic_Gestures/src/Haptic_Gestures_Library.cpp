@@ -1,7 +1,7 @@
 #include "Haptic_Gestures_Library.hpp"
 
 Haptic_Gestures_Library::Haptic_Gestures_Library(config_struct conf, int initial_active_effect, bool initial_pressure_control): 
-click(conf, 0), clickv_2(conf, 0), spin(conf), spring(conf), inertia{conf},reed_pressure{conf}{
+click(conf), clickv_2(conf), spin(conf), spring(conf), inertia{conf}, reed_pressure{conf}{
     cf = conf;
     effect_list.push_back(&click);
     // effect_list.push_back(&inertia);

@@ -5,7 +5,7 @@ class Click : public std_haptic_effect{
     int clicks;
     
 
-    Click(config_struct cf, bool t_m);
+    Click(config_struct cf);
 
     config_struct get_config();
     void set_config(config_struct cf);

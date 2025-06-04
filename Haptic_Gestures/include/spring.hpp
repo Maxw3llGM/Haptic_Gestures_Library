@@ -1,14 +1,13 @@
 #include "Haptic_Gestures.hpp"
 
+
 class Spring: public std_haptic_effect{
     private:
     // Stop position is used for normalizing the active range of the turn to 0-1 and no more.
     // Maybe allow for what would be concidered distortion zone past 1 like 1-1.25
     // Max position allows for the scaling of how strong the max strenght of the effect is. 
-    double max_position;
-    double stop_position;
-    double ratio;
-    
+
+    Function_Generator fg;
 
     public:
     Spring(config_struct cf);

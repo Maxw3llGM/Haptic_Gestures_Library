@@ -1,5 +1,6 @@
 #include "Haptic_Gestures.hpp"
 
+
 class Reed_pressure: public std_haptic_effect{
     private:
     // Stop position is used for normalizing the active range of the turn to 0-1 and no more.

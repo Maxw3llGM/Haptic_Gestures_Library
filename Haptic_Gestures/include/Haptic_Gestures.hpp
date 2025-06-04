@@ -8,6 +8,7 @@
 #include <clip.hpp>
 #include <function_generator.hpp>
 
+
 struct moteus_commands{
       double out_position;
       double out_velocity;
@@ -21,13 +22,21 @@ struct config_struct{
       double m_kp; //postitional constant
       double m_kd; //differential constant
       double vel; //velocity
+      // Spring Section
+      double spring_slope;
+      double spring_interpolator;
+      double spring_strength;
+      // Click Section
 
       config_struct(){
-            m_d = 1.0;
+            m_d = .5;
             a_z = 0.5;
             m_kp = 1.0;
             m_kd = 1.0;
             vel = 0;
+            spring_slope = 1;
+            spring_interpolator = 1;
+            spring_strength = 1;
       }
       config_struct(double max_dist, double active_zone, double position_coefficient, double velocity_coefficient, double velocity){
             m_d = max_dist;
@@ -51,19 +60,20 @@ class std_haptic_effect {
       double command_torque;
       double command_position;
       double command_velocity;
+
       double relative_position;
       double latched_position;
       double max_distance;
       double dt;
       double init_pos;
       double max_torque;
+
       config_struct config_file;
       moteus_commands m_out;
-      Function_Generator fg;
+      
+
       std_haptic_effect();
-      std_haptic_effect(bool t_m);
       std_haptic_effect(config_struct cf);
-      std_haptic_effect(config_struct cf, bool t_m);
       virtual moteus_commands calculate(double pos, double torque, double velocity) = 0;
       void set_initial_position(int init_pos);
       config_struct get_config();

@@ -1,10 +1,7 @@
 #include <spring.hpp>
 
 Spring::Spring(config_struct cf):
-std_haptic_effect{cf}, ratio{0.0} {
-    max_position = config_file.m_d;
-    stop_position = config_file.a_z;
-}
+std_haptic_effect{cf}, fg{cf.spring_slope,cf.spring_interpolator,cf.m_d,cf.spring_strength}{ }
 
 double Spring::normalized_position(double position, double st_pos){
     return clip(position, -st_pos, st_pos)/st_pos;
