@@ -13,6 +13,7 @@ struct moteus_commands{
       double out_position;
       double out_velocity;
       double out_torque;
+      double out_cv1;
 };
 
 struct config_struct{
@@ -27,11 +28,13 @@ struct config_struct{
       double spring_interpolator;
       double spring_strength;
       // Click Section
-
+      double click_m_d; //max distance
+      double click_number_of_clicks;
+      double click_strength;
       config_struct(){
             m_d = .5;
             a_z = 0.5;
-            m_kp = 1.0;
+            m_kp = 2.0;
             m_kd = 1.0;
             vel = 0;
             spring_slope = 1;
