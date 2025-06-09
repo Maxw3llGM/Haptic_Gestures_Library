@@ -1,11 +1,15 @@
 #include "spin.hpp"
+#include "Haptic_Gestures.hpp"
 
-Spin::Spin(config_struct cf):
-    std_haptic_effect{cf}
+Spin::Spin(config_struct cf, input_variables * ins):
+    std_haptic_effect{cf, ins}
 {}
 
 void Spin::set_velocity(double vel){
     config_file.vel = vel;
+}
+void Spin::map_inputs(){
+    printf("%3.3f, %3.3f, %3.3f, %3.3f\r", ins.In_1,ins.In_2,ins.In_3,ins.In_4);
 }
 moteus_commands Spin::calculate(double pos, double torque, double velocity){
     m_out.out_velocity = config_file.vel;

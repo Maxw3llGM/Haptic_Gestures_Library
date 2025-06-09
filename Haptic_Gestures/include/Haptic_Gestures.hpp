@@ -16,6 +16,17 @@ struct moteus_commands{
       double out_cv1;
 };
 
+struct input_var{
+      double input;
+      bool changed;
+};
+struct input_variables{
+      double In_1;
+      double In_2;
+      double In_3;
+      double In_4;
+};
+
 struct config_struct{
       public:
       double m_d; //max distance
@@ -31,6 +42,7 @@ struct config_struct{
       double click_m_d; //max distance
       double click_number_of_clicks;
       double click_strength;
+
       config_struct(){
             m_d = .5;
             a_z = 0.5;
@@ -71,19 +83,19 @@ class std_haptic_effect {
       double init_pos;
       double max_torque;
 
+      input_variables ins;
       config_struct config_file;
       moteus_commands m_out;
       
-
+      virtual void map_inputs() = 0;
       std_haptic_effect();
-      std_haptic_effect(config_struct cf);
+      std_haptic_effect(config_struct cf, input_variables * inputs);
       virtual moteus_commands calculate(double pos, double torque, double velocity) = 0;
       void set_initial_position(int init_pos);
       config_struct get_config();
       void set_config(config_struct cf);
       double torque_Rendering(double position, double functions_output);
       void set_Max_Torque(double new_value);
-
       virtual void print_consts();
 };
 #endif

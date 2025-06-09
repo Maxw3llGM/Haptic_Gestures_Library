@@ -13,7 +13,7 @@ class ClickV_2 : public std_haptic_effect {
       int clicks;
 
       ClickV_2();
-      ClickV_2(config_struct cf);
+      ClickV_2(config_struct cf, input_variables * ins);
 
       config_struct get_config();
       void set_config(config_struct config_file);
@@ -29,6 +29,7 @@ class ClickV_2 : public std_haptic_effect {
       void print_consts();
 
       double get_relative_position(double absolute_position, double delta);
+      void map_inputs();
       moteus_commands calculate(double pos, double torque, double velocity);
 
       std::tuple<double,double> get_strength_coef();

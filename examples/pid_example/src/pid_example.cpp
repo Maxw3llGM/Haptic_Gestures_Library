@@ -38,7 +38,7 @@ static volatile int keepRunning = 1;
 moteus_commands m_command;
 config_struct config_file;
 
-Click click(config_file, true);
+Click click(config_file);
 
 void intHandler(int dummy){
     keepRunning = 0;

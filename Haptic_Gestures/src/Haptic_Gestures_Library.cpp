@@ -1,7 +1,8 @@
 #include "Haptic_Gestures_Library.hpp"
+#include "Haptic_Gestures.hpp"
 
-Haptic_Gestures_Library::Haptic_Gestures_Library(config_struct conf, int initial_active_effect, bool initial_pressure_control): 
-click(conf), clickv_2(conf), spin(conf), spring(conf), inertia{conf}, reed_pressure{conf}{
+Haptic_Gestures_Library::Haptic_Gestures_Library(config_struct conf, int initial_active_effect, bool initial_pressure_control, input_variables * ins): 
+click(conf, ins), clickv_2(conf, ins), spin(conf, ins), spring(conf, ins), inertia{conf, ins}, reed_pressure{conf, ins}{
     cf = conf;
     effect_list.push_back(&click);
     // effect_list.push_back(&inertia);
@@ -25,7 +26,7 @@ void Haptic_Gestures_Library::change_effect(int active_effect_index){
     try{
         if(active_effect_index < 0 || active_effect_index > effect_list.size()) throw 666;
 
-    active_effects = effect_list[active_effect_index];
+        active_effects = effect_list[active_effect_index];
     //Print to consol that a effect was chosen, maybe make that a function.
     }
     catch(...){

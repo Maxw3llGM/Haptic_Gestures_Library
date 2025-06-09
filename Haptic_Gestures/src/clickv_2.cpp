@@ -1,4 +1,5 @@
 #include "clickv_2.hpp"
+#include "Haptic_Gestures.hpp"
 
 ClickV_2::ClickV_2():
             std_haptic_effect{},
@@ -10,8 +11,8 @@ ClickV_2::ClickV_2():
               active_zone = midpoint - dead_zone;
               relative_position = -midpoint;
             }
-ClickV_2::ClickV_2(config_struct cf):
-            std_haptic_effect{cf},
+ClickV_2::ClickV_2(config_struct cf, input_variables * ins):
+            std_haptic_effect{cf, ins},
             active_zone{0.025},
             clicks{0}  
             {
@@ -58,7 +59,9 @@ double ClickV_2::get_relative_position(double absolute_position, double delta){
 std::tuple<double,double> ClickV_2::get_strength_coef() {return {m_kp, m_kd};}
 
 
-
+void ClickV_2::map_inputs(){
+    printf("%3.3f, %3.3f, %3.3f, %3.3f\r", ins.In_1,ins.In_2,ins.In_3,ins.In_4);
+}
 moteus_commands ClickV_2::calculate(double pos, double torque, double velocity){
   //TODO:begin by making it symetrical, will add asymetry traits when I achieve symmetry with all effects.
 
