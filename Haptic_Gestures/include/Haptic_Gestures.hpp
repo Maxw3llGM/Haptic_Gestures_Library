@@ -8,10 +8,23 @@
 #include <clip.hpp>
 #include <function_generator.hpp>
 
+
 struct moteus_commands{
       double out_position;
       double out_velocity;
       double out_torque;
+      double out_cv1;
+};
+
+struct input_var{
+      double input;
+      bool changed;
+};
+struct input_variables{
+      double In_1;
+      double In_2;
+      double In_3;
+      double In_4;
 };
 
 struct config_struct{
@@ -21,13 +34,24 @@ struct config_struct{
       double m_kp; //postitional constant
       double m_kd; //differential constant
       double vel; //velocity
+      // Spring Section
+      double spring_slope;
+      double spring_interpolator;
+      double spring_strength;
+      // Click Section
+      double click_m_d; //max distance
+      double click_number_of_clicks;
+      double click_strength;
 
       config_struct(){
-            m_d = 1.0;
+            m_d = .5;
             a_z = 0.5;
-            m_kp = 1.0;
+            m_kp = 2.0;
             m_kd = 1.0;
             vel = 0;
+            spring_slope = 1;
+            spring_interpolator = 1;
+            spring_strength = 1;
       }
       config_struct(double max_dist, double active_zone, double position_coefficient, double velocity_coefficient, double velocity){
             m_d = max_dist;
@@ -51,26 +75,27 @@ class std_haptic_effect {
       double command_torque;
       double command_position;
       double command_velocity;
+
       double relative_position;
       double latched_position;
       double max_distance;
       double dt;
       double init_pos;
       double max_torque;
+
+      input_variables ins;
       config_struct config_file;
       moteus_commands m_out;
-      Function_Generator fg;
+      
+      virtual void map_inputs() = 0;
       std_haptic_effect();
-      std_haptic_effect(bool t_m);
-      std_haptic_effect(config_struct cf);
-      std_haptic_effect(config_struct cf, bool t_m);
+      std_haptic_effect(config_struct cf, input_variables * inputs);
       virtual moteus_commands calculate(double pos, double torque, double velocity) = 0;
       void set_initial_position(int init_pos);
       config_struct get_config();
       void set_config(config_struct cf);
       double torque_Rendering(double position, double functions_output);
       void set_Max_Torque(double new_value);
-
       virtual void print_consts();
 };
 #endif

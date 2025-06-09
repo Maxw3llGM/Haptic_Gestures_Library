@@ -21,12 +21,11 @@ class Haptic_Gestures_Library{
         int active_effect_index;
         config_struct cf;
     public:
-        Haptic_Gestures_Library(config_struct conf, int initial_active_effect, bool initial_pressure_control);
+        Haptic_Gestures_Library(config_struct conf, int initial_active_effect, bool initial_pressure_control, input_variables * ins);
         ~Haptic_Gestures_Library();
 
         void change_effect(int active_effect_index);
         moteus_commands effect_calculation(double pos, double vel, double tor);
-
         void set_effect_configuration(config_struct configuration);
         void set_initial_position(double init_position);
         config_struct get_effect_configuration();

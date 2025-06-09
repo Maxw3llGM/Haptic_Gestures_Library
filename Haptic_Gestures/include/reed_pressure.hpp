@@ -1,5 +1,6 @@
 #include "Haptic_Gestures.hpp"
 
+
 class Reed_pressure: public std_haptic_effect{
     private:
     // Stop position is used for normalizing the active range of the turn to 0-1 and no more.
@@ -13,7 +14,7 @@ class Reed_pressure: public std_haptic_effect{
 
 
     public:
-    Reed_pressure(config_struct cf);
+    Reed_pressure(config_struct cf, input_variables * ins);
     void set_H(double new_H) { 
         if(new_H < 2.598){
             std::cout << "Value is too small, Value must be greater or equal to 2.598" << std::endl;
@@ -37,5 +38,6 @@ class Reed_pressure: public std_haptic_effect{
     }
     void set_Amplitude(double new_A){ A = new_A; }
     double flow_equation(double pressure);
+    void map_inputs();
     moteus_commands calculate(double pos, double torque, double velocity);
 };

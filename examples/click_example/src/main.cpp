@@ -16,7 +16,7 @@ void intHandler(int dummy){
     keepRunning = 0;
 }
 config_struct config_file;
-Click click(config_file, true);
+Click click(config_file);
 
 std::atomic<double> effect_data{0.0};
     
