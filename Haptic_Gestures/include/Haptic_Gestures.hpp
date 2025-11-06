@@ -43,7 +43,10 @@ struct config_struct{
       double click_number_of_clicks;
       double click_strength;
 
+      int servo_number;
+
       config_struct(){
+            servo_number = 1;
             m_d = .5;
             a_z = 0.5;
             m_kp = 2.0;
@@ -52,13 +55,16 @@ struct config_struct{
             spring_slope = 1;
             spring_interpolator = 1;
             spring_strength = 1;
+            servo_number = 1;
       }
       config_struct(double max_dist, double active_zone, double position_coefficient, double velocity_coefficient, double velocity){
+            servo_number = 1;
             m_d = max_dist;
             a_z = active_zone;
             m_kp = position_coefficient;
             m_kd = velocity_coefficient;
             vel = velocity;
+            servo_number = 1;
       }
       friend std::ostream& operator <<(std::ostream& os, config_struct const& x){
             return os << x.m_d << '\n' << x.a_z << '\n' << x.m_kp << '\n' << x.m_kd << '\n';

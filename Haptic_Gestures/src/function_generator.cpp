@@ -2,14 +2,14 @@
 
 
 Function_Generator::Function_Generator(): beta{2.0}, alpha{1.0}, range{1.0}{
-    printf("Initializing Functions Generator's Values \n%f, %f, %f, %f \n", beta, alpha, range);
+    printf("Initializing Functions Generator's Values \n%f, %f, %f\n", beta, alpha, range);
 }
 
 Function_Generator::Function_Generator(double b, double a, double r){
     set_beta(b);
     set_alpha(a);
     set_range(r);
-    printf("Initializing Functions Generator's Values \n%f, %f, %f, %f \n", beta, alpha, range);
+    printf("Initializing Functions Generator's Values \n%f, %f, %f\n", beta, alpha, range);
 
 }
 
