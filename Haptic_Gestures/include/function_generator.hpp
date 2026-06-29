@@ -9,16 +9,14 @@ class Function_Generator{
     double beta;
     double alpha;
     double range;
-    double strength;
     double x_clipped;
     public:
     Function_Generator();
-    Function_Generator(double b, double a, double r, double str);
+    Function_Generator(double b, double a, double r);
     double logistic_function(double x);
     double curve_function(double x);
     double calculate(double x);
     void set_beta(double b);
     void set_alpha(double a);
     void set_range(double r);
-    void set_strength(double str);
 };

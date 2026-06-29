@@ -17,7 +17,7 @@ void intHandler(int dummy){
     keepRunning = 0;
 }
 config_struct config_file;
-ClickV_2 click(config_file, true);
+ClickV_2 click(config_file);
 
 std::atomic<double> effect_data{0.0};
     
@@ -55,7 +55,7 @@ int main()
     double in_pos = 1.0;
     double step = 0.01;
     config_struct config_file;
-    ClickV_2 click(config_file, 0);
+    ClickV_2 click(config_file);
     click.set_max_distance(0.1);
     click.set_active_zone(0.01);
     click.print_consts();

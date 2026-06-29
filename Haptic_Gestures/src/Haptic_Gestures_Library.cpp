@@ -1,19 +1,22 @@
 #include "Haptic_Gestures_Library.hpp"
+// #include "Haptic_Gestures.hpp"
 
-Haptic_Gestures_Library::Haptic_Gestures_Library(config_struct conf, int initial_active_effect, bool initial_pressure_control): 
-click(conf, 0), clickv_2(conf, 0), spin(conf), spring(conf), inertia{conf},reed_pressure{conf}{
+Haptic_Gestures_Library::Haptic_Gestures_Library(config_struct conf, int initial_active_effect, bool initial_pressure_control, input_variables * ins) 
+{
     cf = conf;
-    effect_list.push_back(&click);
+    effect_list.push_back(std::make_unique<Click>(conf, ins));
     // effect_list.push_back(&inertia);
     // effect_list.push_back(&clickv_2);
-    // effect_list.push_back(&spin);
-    effect_list.push_back(&spring);
-    effect_list.push_back(&reed_pressure);
+    
+    effect_list.push_back(std::make_unique<Spring>(conf, ins));
+    effect_list.push_back(std::make_unique<Wall>(conf, ins));
+    effect_list.push_back(std::make_unique<Spin>(conf, ins));
+    // effect_list.push_back(std::make_unique<Reed_pressure>(conf, ins));
     active_effect_index = initial_active_effect;
     try{
         if(initial_active_effect < 0 || initial_active_effect > effect_list.size()) throw 666;
 
-    active_effects = effect_list[initial_active_effect];
+    active_effects = effect_list[initial_active_effect].get();
     //Print to consol that a effect was chosen, maybe make that a function.
     }
     catch(...){
@@ -25,7 +28,7 @@ void Haptic_Gestures_Library::change_effect(int active_effect_index){
     try{
         if(active_effect_index < 0 || active_effect_index > effect_list.size()) throw 666;
 
-    active_effects = effect_list[active_effect_index];
+        active_effects = effect_list[active_effect_index].get();
     //Print to consol that a effect was chosen, maybe make that a function.
     }
     catch(...){
@@ -42,7 +45,7 @@ void Haptic_Gestures_Library::set_active_effect(int step){
         active_effect_index = effect_list.size()-1;
     }
 
-    active_effects = effect_list[active_effect_index];
+    active_effects = effect_list[active_effect_index].get();
 }
 
 moteus_commands Haptic_Gestures_Library::effect_calculation(double pos, double vel, double tor){
