@@ -6,6 +6,7 @@ class Click : public std_haptic_effect{
     double number_of_clicks;
     double max_click_distance;
     double click_strength;
+    
     Click(config_struct cf, input_variables * ins);
 
     config_struct get_config();

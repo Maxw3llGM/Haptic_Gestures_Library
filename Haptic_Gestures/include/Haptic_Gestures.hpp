@@ -13,6 +13,7 @@ struct moteus_commands{
       double out_position;
       double out_velocity;
       double out_torque;
+      double kp_scale;
       double out_cv1;
 };
 
@@ -43,6 +44,13 @@ struct config_struct{
       double click_number_of_clicks;
       double click_strength;
 
+      // Wall Section
+      double wall_m_d;
+      double wall_offset;
+      double wall_strength;
+      // Spin Section
+      double spin_vel;
+      
       int servo_number;
 
       config_struct(){
@@ -88,6 +96,7 @@ class std_haptic_effect {
       double dt;
       double init_pos;
       double max_torque;
+      double clicks_effect=0;
 
       input_variables ins;
       config_struct config_file;

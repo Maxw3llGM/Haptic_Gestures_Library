@@ -7,9 +7,11 @@ Haptic_Gestures_Library::Haptic_Gestures_Library(config_struct conf, int initial
     effect_list.push_back(std::make_unique<Click>(conf, ins));
     // effect_list.push_back(&inertia);
     // effect_list.push_back(&clickv_2);
-    // effect_list.push_back(&spin);
+    
     effect_list.push_back(std::make_unique<Spring>(conf, ins));
-    effect_list.push_back(std::make_unique<Reed_pressure>(conf, ins));
+    effect_list.push_back(std::make_unique<Wall>(conf, ins));
+    effect_list.push_back(std::make_unique<Spin>(conf, ins));
+    // effect_list.push_back(std::make_unique<Reed_pressure>(conf, ins));
     active_effect_index = initial_active_effect;
     try{
         if(initial_active_effect < 0 || initial_active_effect > effect_list.size()) throw 666;

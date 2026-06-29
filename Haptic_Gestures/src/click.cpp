@@ -65,6 +65,7 @@ moteus_commands Click::calculate(double pos, double torque, double velocity){
     }
   else {
     latched_position = pos;
+    clicks_effect++;
   }
   
 
